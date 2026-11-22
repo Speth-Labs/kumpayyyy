@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wecol — Edukasi Dunia Kopi</title>
+  <meta name="description" content="Wecol — Platform edukasi kopi. Dari biji hingga cangkir, setiap tegukan punya cerita."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar" aria-label="Navigasi utama">
+  <a class="nav-logo" onclick="showPage('home')">
+    <span class="logo-txt">Wecol</span>
+    <span class="logo-dot"></span>
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a class="nav-link active" onclick="showPage('home')">Beranda</a>
+    <a class="nav-link" onclick="showPage('jenis')">Jenis Kopi</a>
+    <a class="nav-link" onclick="showPage('seduh')">Cara Seduh</a>
+    <a class="nav-link" onclick="showPage('biji')">Perjalanan Biji</a>
+    <a class="nav-link" onclick="showPage('tips')">Tips & Fakta</a>
+  </div>
+  <button class="nav-burger" id="nav-burger" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="nav-links"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+</nav>
+
+
+<!-- ═══ HOME ═══ -->
+<div id="page-home" class="page active">
+
+  <section class="hero">
+    <div class="hero-inner wrap">
+
+      <div class="hero-text">
+        <div class="hero-pre">Platform Edukasi Kopi</div>
+        <h1>Dari Biji ke Cangkir,<em>Setiap Tegukan</em>Punya Cerita</h1>
+        <p class="hero-body">Pelajari dunia kopi yang kaya — dari asal biji, cara pengolahan, hingga teknik menyeduh yang sempurna untuk semua level.</p>
+        <div class="hero-cta">
+          <button class="btn-gold" onclick="showPage('seduh')"><i class="fa-solid fa-mug-hot"></i> Mulai Belajar</button>
+          <button class="btn-ghost" onclick="showPage('jenis')"><i class="fa-solid fa-seedling"></i> Jenis Kopi</button>
+        </div>
+        <div class="hero-facts">
+          <div class="hf"><b>12</b><span>Metode Seduh</span></div>
+          <div class="hf"><b>4</b><span>Spesies Kopi</span></div>
+          <div class="hf"><b>20+</b><span>Tips & Fakta</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card-visual">
+          <div class="hcv-steam">
+            <span></span><span></span><span></span>
+          </div>
+          <span class="hcv-emoji">☕</span>
+          <p class="hcv-label">Secangkir penuh pengetahuan</p>
+        </div>
+        <div class="hero-tags">
+          <span class="htag">☕ Arabica</span>
+          <span class="htag">💪 Robusta</span>
+          <span class="htag">🧊 Cold Brew</span>
+          <span class="htag">⚙️ Espresso</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="starter-section">
+    <div class="wrap">
+      <div class="starter-card">
+        <div class="starter-copy">
+          <div class="section-eyebrow starter-eyebrow">Mulai tanpa bingung</div>
+          <h2>Belum tahu harus menyeduh dengan apa?</h2>
+          <p>Pilih suasana hatimu. Wecol akan membawa kamu langsung ke resep yang paling pas untuk dicoba sekarang.</p>
+        </div>
+        <div class="starter-actions">
+          <button class="starter-choice" type="button" onclick="recommendMethod('frenchpress')">
+            <span class="starter-choice-ico">☕</span>
+            <span><b>Baru mulai</b><small>French Press</small></span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </button>
+          <button class="starter-choice" type="button" onclick="recommendMethod('tubruk')">
+            <span class="starter-choice-ico">🥄</span>
+            <span><b>Tanpa alat khusus</b><small>Kopi Tubruk</small></span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </button>
+          <button class="starter-choice" type="button" onclick="recommendMethod('coldbrew')">
+            <span class="starter-choice-ico">🧊</span>
+            <span><b>Ingin yang dingin</b><small>Cold Brew</small></span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </button>
+        </div>
+        <div class="starter-note"><i class="fa-solid fa-wand-magic-sparkles"></i> Semua pilihan membuka panduan langkah demi langkah.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="topics-section">
+    <div class="wrap">
+      <div class="section-eyebrow">Mulai dari mana</div>
+      <h2 class="section-heading">Pilih Topik yang Ingin<br/>Kamu Pelajari</h2>
+      <p class="section-sub">Setiap topik dirancang agar mudah dipahami — tidak peduli kamu baru pertama mengenal kopi atau sudah lama menyeduh.</p>
+
+      <div class="topic-bento">
+        <div class="tbento" onclick="showPage('jenis')">
+          <span class="tbento-num">01</span>
+          <span class="tbento-ico">🌱</span>
+          <h3>Jenis Kopi</h3>
+          <p>Kenali perbedaan Arabica, Robusta, Liberica, dan Excelsa — dari profil rasa hingga daerah asalnya.</p>
+          <span class="tbento-arrow">Pelajari <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+        <div class="tbento" onclick="showPage('seduh')">
+          <span class="tbento-num">02</span>
+          <span class="tbento-ico">☕</span>
+          <h3>Cara Menyeduh</h3>
+          <p>Panduan 12 metode menyeduh kopi lengkap dengan langkah demi langkah yang mudah diikuti.</p>
+          <span class="tbento-arrow">Pelajari <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+        <div class="tbento" onclick="showPage('biji')">
+          <span class="tbento-num">03</span>
+          <span class="tbento-ico">🫘</span>
+          <h3>Perjalanan Biji</h3>
+          <p>Dari petani ke cangkirmu — proses panjang yang menentukan cita rasa setiap tegukan kopi.</p>
+          <span class="tbento-arrow">Pelajari <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+        <div class="tbento" onclick="showPage('tips')">
+          <span class="tbento-num">04</span>
+          <span class="tbento-ico">💡</span>
+          <h3>Tips & Fakta Unik</h3>
+          <p>Rahasia barista, cara menyimpan kopi yang benar, dan fakta menarik seputar dunia kopi.</p>
+          <span class="tbento-arrow">Pelajari <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-strip">
+    <div class="wrap">
+      <blockquote>
+        <p>"Kopi yang baik bukan tentang mereknya — tapi tentang cara kamu membuatnya."</p>
+        <cite>— Filosofi Wecol</cite>
+      </blockquote>
+    </div>
+  </section>
+
+</div>
+
+
+<!-- ═══ JENIS KOPI ═══ -->
+<div id="page-jenis" class="page">
+  <div class="page-banner" style="background:linear-gradient(150deg,#2c1810 0%,#5c3317 60%,#3d2210 100%)">
+    <div class="wrap">
+      <p class="banner-pre">Wecol / Jenis Kopi</p>
+      <h1>Mengenal Empat Spesies Kopi Dunia</h1>
+      <p>Setiap spesies punya karakter, aroma, dan cerita yang berbeda. Kenali mereka satu per satu.</p>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <div class="wrap">
+
+      <div class="acc-card open" id="acc-arabica">
+        <div class="acc-head" onclick="toggleAcc('arabica')">
+          <span class="acc-num">01</span>
+          <div class="acc-info">
+            <h3>Arabica <small>Coffea arabica</small></h3>
+            <p>Paling populer — 60% produksi kopi dunia</p>
+          </div>
+          <span class="acc-chip">★★★★★ Rasa</span>
+          <div class="acc-chevron"><i class="fa-solid fa-chevron-down"></i></div>
+        </div>
+        <div class="acc-body">
+          <div class="acc-columns">
+            <div class="acc-col"><h4>Karakteristik</h4><ul>
+              <li>Rasa halus, asam ringan, kompleks</li>
+              <li>Aroma bunga dan buah yang khas</li>
+              <li>Kadar kafein rendah (~1.2%)</li>
+              <li>Tumbuh di ketinggian 600–2000 mdpl</li>
+              <li>Butuh suhu sejuk 15–24°C</li>
+            </ul></div>
+            <div class="acc-col"><h4>Daerah Asal</h4><ul>
+              <li>🇪🇹 Ethiopia — asal muasal kopi</li>
+              <li>🇨🇴 Colombia</li>
+              <li>🇧🇷 Brazil</li>
+              <li>🇮🇩 Indonesia (Gayo, Toraja, Flores)</li>
+              <li>🇾🇪 Yemen</li>
+            </ul></div>
+            <div class="acc-col"><h4>Cocok Untuk</h4><ul>
+              <li>Pour over (V60, Chemex)</li>
+              <li>Cold brew</li>
+              <li>Single origin espresso</li>
+              <li>Specialty coffee</li>
+            </ul></div>
+          </div>
+          <div class="flavor-tags">
+            <span class="flav" style="background:#fff3e0;color:#c45a00">Cokelat</span>
+            <span class="flav" style="background:#f3e5f5;color:#7b1fa2">Bunga</span>
+            <span class="flav" style="background:#e8f5e9;color:#2e7d32">Buah Segar</span>
+            <span class="flav" style="background:#fce4ec;color:#c62828">Berry</span>
+            <span class="flav" style="background:#e3f2fd;color:#1565c0">Karamel</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-card" id="acc-robusta">
+        <div class="acc-head" onclick="toggleAcc('robusta')">
+          <span class="acc-num">02</span>
+          <div class="acc-info">
+            <h3>Robusta <small>Coffea canephora</small></h3>
+            <p>Kuat dan bold — favorit espresso blend & kopi instan</p>
+          </div>
+          <span class="acc-chip">★★★★★ Kafein</span>
+          <div class="acc-chevron"><i class="fa-solid fa-chevron-down"></i></div>
+        </div>
+        <div class="acc-body">
+          <div class="acc-columns">
+            <div class="acc-col"><h4>Karakteristik</h4><ul>
+              <li>Rasa pahit kuat dan earthy</li>
+              <li>Body tebal, creamy, dan pekat</li>
+              <li>Kadar kafein tinggi (~2.7%)</li>
+              <li>Tumbuh di dataran rendah</li>
+              <li>Lebih tahan penyakit</li>
+            </ul></div>
+            <div class="acc-col"><h4>Daerah Asal</h4><ul>
+              <li>🇨🇬 Kongo — asal muasal</li>
+              <li>🇻🇳 Vietnam — produsen terbesar</li>
+              <li>🇮🇩 Indonesia (Lampung, Bengkulu)</li>
+              <li>🇺🇬 Uganda</li>
+            </ul></div>
+            <div class="acc-col"><h4>Cocok Untuk</h4><ul>
+              <li>Espresso blend</li>
+              <li>Kopi sachet / instan</li>
+              <li>Vietnamese iced coffee</li>
+              <li>Cappuccino, latte</li>
+            </ul></div>
+          </div>
+          <div class="flavor-tags">
+            <span class="flav" style="background:#efebe9;color:#4e342e">Pahit</span>
+            <span class="flav" style="background:#f5f5f5;color:#424242">Earthy</span>
+            <span class="flav" style="background:#fff8e1;color:#e65100">Kayu</span>
+            <span class="flav" style="background:#e8f5e9;color:#2e7d32">Kacang</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-card" id="acc-liberica">
+        <div class="acc-head" onclick="toggleAcc('liberica')">
+          <span class="acc-num">03</span>
+          <div class="acc-info">
+            <h3>Liberica <small>Coffea liberica</small></h3>
+            <p>Langka dan unik — buah besar dengan aroma khas nangka</p>
+          </div>
+          <span class="acc-chip">★★★★☆ Langka</span>
+          <div class="acc-chevron"><i class="fa-solid fa-chevron-down"></i></div>
+        </div>
+        <div class="acc-body">
+          <div class="acc-columns">
+            <div class="acc-col"><h4>Karakteristik</h4><ul>
+              <li>Buah kopi berukuran besar</li>
+              <li>Rasa smoky, floral, dan woody</li>
+              <li>Aroma khas seperti nangka matang</li>
+              <li>Produksi sangat terbatas (~1%)</li>
+            </ul></div>
+            <div class="acc-col"><h4>Daerah Asal</h4><ul>
+              <li>🇱🇷 Liberia — asal</li>
+              <li>🇵🇭 Filipina</li>
+              <li>🇲🇾 Malaysia</li>
+              <li>🇮🇩 Indonesia (Jambi)</li>
+            </ul></div>
+            <div class="acc-col"><h4>Cocok Untuk</h4><ul>
+              <li>Seduh manual (tubruk)</li>
+              <li>Drip coffee</li>
+              <li>Pencinta kopi adventurous</li>
+            </ul></div>
+          </div>
+          <div class="flavor-tags">
+            <span class="flav" style="background:#fce4ec;color:#c62828">Floral</span>
+            <span class="flav" style="background:#efebe9;color:#4e342e">Smoky</span>
+            <span class="flav" style="background:#fff8e1;color:#e65100">Nangka</span>
+            <span class="flav" style="background:#f5f5f5;color:#424242">Woody</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-card" id="acc-excelsa">
+        <div class="acc-head" onclick="toggleAcc('excelsa')">
+          <span class="acc-num">04</span>
+          <div class="acc-info">
+            <h3>Excelsa <small>Coffea excelsa</small></h3>
+            <p>Saudara Liberica — rasa tart, fruity, wine-like</p>
+          </div>
+          <span class="acc-chip">★★★★★ Unik</span>
+          <div class="acc-chevron"><i class="fa-solid fa-chevron-down"></i></div>
+        </div>
+        <div class="acc-body">
+          <div class="acc-columns">
+            <div class="acc-col"><h4>Karakteristik</h4><ul>
+              <li>Rasa tart, fruity, dan wine-like</li>
+              <li>Aroma kompleks dan unik</li>
+              <li>Sangat jarang di pasaran</li>
+              <li>Sering digunakan sebagai blending</li>
+            </ul></div>
+            <div class="acc-col"><h4>Daerah Asal</h4><ul>
+              <li>🌍 Afrika Tengah — asal</li>
+              <li>🇵🇭 Filipina</li>
+              <li>🇻🇳 Vietnam</li>
+              <li>🇮🇩 Indonesia</li>
+            </ul></div>
+            <div class="acc-col"><h4>Cocok Untuk</h4><ul>
+              <li>Blending dengan Arabica</li>
+              <li>Eksplorasi rasa</li>
+              <li>Specialty blend</li>
+            </ul></div>
+          </div>
+          <div class="flavor-tags">
+            <span class="flav" style="background:#e8f5e9;color:#2e7d32">Fruity</span>
+            <span class="flav" style="background:#fce4ec;color:#c62828">Tart</span>
+            <span class="flav" style="background:#f3e5f5;color:#7b1fa2">Wine-like</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="compare-section">
+        <h2>Perbandingan Singkat</h2>
+        <div class="compare-scroll">
+          <table class="compare-tbl">
+            <thead><tr><th>Spesies</th><th>Rasa</th><th>Kafein</th><th>Harga</th><th>Populer di</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Arabica</strong></td><td>Halus, sedikit asam</td><td>Rendah</td><td>Lebih mahal</td><td>Specialty cafe</td></tr>
+              <tr><td><strong>Robusta</strong></td><td>Pahit, bold</td><td>Tinggi</td><td>Lebih murah</td><td>Espresso, kopi instan</td></tr>
+              <tr><td><strong>Liberica</strong></td><td>Smoky, floral</td><td>Sedang</td><td>Langka</td><td>Filipina, Malaysia</td></tr>
+              <tr><td><strong>Excelsa</strong></td><td>Tart, fruity</td><td>Sedang</td><td>Sangat langka</td><td>Specialty blend</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ CARA SEDUH ═══ -->
+<div id="page-seduh" class="page">
+  <div class="page-banner" style="background:linear-gradient(150deg,#1a2a3a 0%,#2d4a6a 60%,#1a3050 100%)">
+    <div class="wrap">
+      <p class="banner-pre">Wecol / Cara Seduh</p>
+      <h1>Dua Belas Cara Menyeduh Kopi</h1>
+      <p>Dari yang paling sederhana hingga yang paling teknikal — semua ada panduannya di sini.</p>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="wrap">
+      <div class="methods-intro">
+        <div>
+          <div class="section-eyebrow">Cari resep</div>
+          <h2>Temukan cara seduh yang cocok untukmu</h2>
+          <p>Gunakan pencarian atau filter berdasarkan gaya seduh. Simpan resep favorit supaya mudah ditemukan lagi.</p>
+        </div>
+        <label class="method-search-wrap" for="method-search">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <input id="method-search" type="search" placeholder="Cari V60, kopi dingin..." autocomplete="off" aria-label="Cari metode seduh"/>
+          <button class="search-clear" id="clear-method-search" type="button" aria-label="Hapus pencarian" hidden>
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+          </button>
+        </label>
+      </div>
+
+      <div class="filter-row">
+        <button class="fchip active" onclick="filterMethods('all',this)">Semua Metode</button>
+        <button class="fchip" onclick="filterMethods('manual',this)">Manual Brew</button>
+        <button class="fchip" onclick="filterMethods('mesin',this)">Pakai Mesin</button>
+        <button class="fchip" onclick="filterMethods('dingin',this)">Kopi Dingin</button>
+        <button class="fchip" onclick="filterMethods('tradisional',this)">Tradisional</button>
+        <button class="fchip favorites-chip" onclick="filterMethods('favorites',this)"><i class="fa-regular fa-heart" aria-hidden="true"></i> Favorit <span class="filter-count" id="favorite-count">0</span></button>
+      </div>
+
+      <div class="method-meta" aria-live="polite">
+        <span id="method-count">12 resep tersedia</span>
+        <span><i class="fa-regular fa-bookmark" aria-hidden="true"></i> Tersimpan di perangkatmu</span>
+      </div>
+
+      <div class="methods-list" id="methods-list">
+        <div class="mcard" data-cat="manual" onclick="openModal('v60')">
+          <div class="mcard-header"><span class="mcard-num">01</span><span class="mlvl beginner">Pemula</span></div>
+          <span class="mcard-emoji">🫗</span>
+          <h3>V60 Pour Over</h3>
+          <p>Tuang air melingkar di atas filter kertas untuk kopi yang bersih, cerah, dan penuh aroma.</p>
+          <div class="mcard-specs">
+            <span class="mspec"><i class="fa-solid fa-clock"></i> 3–4 menit</span>
+            <span class="mspec"><i class="fa-solid fa-fire"></i> 93°C</span>
+            <span class="mspec"><i class="fa-solid fa-scale-balanced"></i> 1:15</span>
+          </div>
+        </div>
+        <div class="mcard" data-cat="manual" onclick="openModal('frenchpress')">
+          <div class="mcard-header"><span class="mcard-num">02</span><span class="mlvl beginner">Pemula</span></div>
+          <span class="mcard-emoji">🫙</span>
+          <h3>French Press</h3>
+          <p>Rendam kopi dalam air panas lalu tekan plunger. Hasilkan kopi bold, pekat, dan full-body.</p>
+          <div class="mcard-specs">
+            <span class="mspec"><i class="fa-solid fa-clock"></i> 4 menit</span>
+            <span class="mspec"><i class="fa-solid fa-fire"></i> 95°C</span>
+            <span class="mspec"><i class="fa-solid fa-scale-balanced"></i> 1:12</span>
+          </div>
+        </div>
+        <div class="mcard" data-cat="mesin" onclick="openModal('espresso')">
+          <div class="mcard-header"><span class="mcard-num">03</span><span class="mlvl advanced">Lanjutan</span></div>
+          <span class="mcard-emoji">⚙️</span>
+          <h3>Espresso</h3>
+          <p>Air bertekanan tinggi dipaksa melewati bubuk kopi halus. Dasar dari semua minuman coffee bar.</p>
+          <div class="mcard-specs">
+            <span class="mspec"><i class="fa-solid fa-clock"></i> 25–30 detik</span>
+            <span class="mspec"><i class="fa-solid fa-fire"></i> 93°C</span>
+            <span class="mspec"><i class="fa-solid fa-scale-balanced"></i> 1:2</span>
+          </div>
+        </div>
+        <div class="mcard" data-cat="manual" onclick="openModal('aeropress')">
+          <div class="mcard-header"><span class="mcard-num">04</span><span class="mlvl intermediate">Menengah</span></div>
+          <span class="mcard-emoji">🧪</span>
+          <h3>AeroPress</h3>
+          <p>Alat portabel yang fleksibel. Hasilkan kopi kuat dan smooth hanya dalam 2 menit.</p>
+          <div class="mcard-specs">
+            <span class="mspec"><i class="fa-solid fa-clock"></i> 1–2 menit</span>
+            <span class="mspec"><i class="fa-solid fa-fire"></i> 85°C</span>
+            <span class="mspec"><i class="fa-solid fa-scale-balanced"></i> 1:6</span>
+          </div>
+        </div>
+        <div class="mcard" data-cat="dingin" onclick="openModal('coldbrew')">
+          <div class="mcard-header"><span class="mcard-num">05</span><span class="mlvl beginner">Pemula</span></div>
+          <span class="mcard-emoji">🧊</span>
+          <h3>Cold Brew</h3>
+          <p>Seduh dengan air dingin selama 12–24 jam. Rendah asam, manis alami, dan sangat smooth.</p>
+          <div class="mcard-specs">
+            <span class="mspec"><i class="fa-solid fa-clock"></i> 12–24 jam</span>
+            <span class="mspec"><i class="fa-solid fa-fire"></i> Air dingin</span>
+            <span class="mspec"><i class="fa-solid fa-scale-balanced"></i> 1:8</span>
+          </div>
+        </div>
+        <div class="mcard" data-cat="tradisional" onclick="openModal('tubruk')">
+          <div class="mcard-header"><span class="mcard-num">06</span><span class="mlvl beginner">Pemula</span></div>
+          <span class="mcard-emoji">🥄</span>
+          <h3>Kopi Tubruk</h3>
+          <p>Cara tradisional Indonesia yang paling sederhana dan otentik — kopi diseduh langsung tanpa filter.</p>
+          <div class="mcard-specs">
+            <span class="mspec"><i class="fa-solid fa-clock"></i> 3–5 menit</span>
+            <span class="mspec"><i class="fa-solid fa-fire"></i> 93°C</span>
+            <span class="mspec"><i class="fa-solid fa-scale-balanced"></i> 1:10</span>
+          </div>
+        </div>
+        <div class="mcard" data-cat="manual" onclick="openModal('chemex')">
+          <div class="mcard-header"><span class="mcard-num">07</span><span class="mlvl intermediate">Menengah</span></div>
+          <span class="mcard-emoji">⚗️</span>
+          <h3>Chemex</h3>
+          <p>Dripper kaca elegan dengan filter tebal khusus — menghasilkan kopi sangat jernih dan bersih.</p>
+          <div class="mcard-specs">
+            <span class="mspec"><i class="fa-solid fa-clock"></i> 4–5 menit</span>
+            <span class="mspec"><i class="fa-solid fa-fire"></i> 94°C</span>
+            <span class="mspec"><i class="fa-solid fa-scale-balanced"></i> 1:17</span>
+          </div>
+        </div>
+        <div class="mcard" data-cat="mesin" onclick="openModal('mokpot')">
+          <div class="mcard-header"><span class="mcard-num">08</span><span class="mlvl beginner">Pemula</span></div>
+          <span class="mcard-emoji">🫖</span>
+          <h3>Moka Pot</h3>
+          <p>Kompor espresso Italia — uap panas mendorong air melewati kopi untuk rasa yang kuat dan aromatik.</p>
+          <div class="mcard-specs">
+            <span class="mspec"><i class="fa-solid fa-clock"></i> 5–7 menit</span>
+            <span class="mspec"><i class="fa-solid fa-fire"></i> Api sedang</span>
+            <span class="mspec"><i class="fa-solid fa-scale-balanced"></i> 1:7</span>
+          </div>
+        </div>
+        <div class="mcard" data-cat="dingin" onclick="openModal('japaneseicedcoffee')">
+          <div class="mcard-header"><span class="mcard-num">09</span><span class="mlvl intermediate">Menengah</span></div>
+          <span class="mcard-emoji">🧋</span>
+          <h3>Japanese Iced Coffee</h3>
+          <p>Pour over langsung ke es batu — kopi panas dan dingin sekaligus untuk rasa yang cerah dan segar.</p>
+          <div class="mcard-specs">
+            <span class="mspec"><i class="fa-solid fa-clock"></i> 3–4 menit</span>
+            <span class="mspec"><i class="fa-solid fa-fire"></i> 96°C</span>
+            <span class="mspec"><i class="fa-solid fa-scale-balanced"></i> 1:13</span>
+          </div>
+        </div>
+        <div class="mcard" data-cat="manual" onclick="openModal('siphon')">
+          <div class="mcard-header"><span class="mcard-num">10</span><span class="mlvl advanced">Lanjutan</span></div>
+          <span class="mcard-emoji">🔭</span>
+          <h3>Siphon / Vacuum Pot</h3>
+          <p>Metode teatrikal dengan dua ruang kaca — uap dan vakum menciptakan kopi yang bersih dan kompleks.</p>
+          <div class="mcard-specs">
+            <span class="mspec"><i class="fa-solid fa-clock"></i> 6–8 menit</span>
+            <span class="mspec"><i class="fa-solid fa-fire"></i> 92°C</span>
+            <span class="mspec"><i class="fa-solid fa-scale-balanced"></i> 1:15</span>
+          </div>
+        </div>
+        <div class="mcard" data-cat="tradisional" onclick="openModal('vietnamesecoffee')">
+          <div class="mcard-header"><span class="mcard-num">11</span><span class="mlvl beginner">Pemula</span></div>
+          <span class="mcard-emoji">🇻🇳</span>
+          <h3>Vietnamese Drip (Phin)</h3>
+          <p>Filter tetes lambat khas Vietnam — kopi pekat yang dituang di atas susu kental manis dan es batu.</p>
+          <div class="mcard-specs">
+            <span class="mspec"><i class="fa-solid fa-clock"></i> 5–8 menit</span>
+            <span class="mspec"><i class="fa-solid fa-fire"></i> 95°C</span>
+            <span class="mspec"><i class="fa-solid fa-scale-balanced"></i> 1:8</span>
+          </div>
+        </div>
+        <div class="mcard" data-cat="tradisional" onclick="openModal('turkishcoffee')">
+          <div class="mcard-header"><span class="mcard-num">12</span><span class="mlvl intermediate">Menengah</span></div>
+          <span class="mcard-emoji">🏺</span>
+          <h3>Turkish Coffee (Cezve)</h3>
+          <p>Kopi bubuk sangat halus dimasak bersama air di dalam cezve tembaga kecil — cara tertua menyeduh kopi.</p>
+          <div class="mcard-specs">
+            <span class="mspec"><i class="fa-solid fa-clock"></i> 3–4 menit</span>
+            <span class="mspec"><i class="fa-solid fa-fire"></i> Api kecil</span>
+            <span class="mspec"><i class="fa-solid fa-scale-balanced"></i> 1:8</span>
+          </div>
+        </div>
+      </div>
+      <div class="method-empty" id="method-empty" hidden>
+        <span class="method-empty-ico">🔎</span>
+        <h3>Belum ketemu resepnya</h3>
+        <p>Coba kata kunci lain atau kembalikan semua filter untuk melihat 12 metode lagi.</p>
+        <button class="btn-outline" type="button" onclick="resetMethodFilters()">Tampilkan semua resep</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal panduan seduh -->
+<div class="modal-bg" id="modal-bg" onclick="closeModal(event)" aria-hidden="true">
+  <div class="modal-box" id="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1"></div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+
+<!-- ═══ PERJALANAN BIJI ═══ -->
+<div id="page-biji" class="page">
+  <div class="page-banner" style="background:linear-gradient(150deg,#1e4020 0%,#3a7a30 60%,#204020 100%)">
+    <div class="wrap">
+      <p class="banner-pre">Wecol / Perjalanan Biji</p>
+      <h1>Dari Kebun ke Cangkir</h1>
+      <p>Sebutir biji kopi melewati tujuh tahap panjang sebelum sampai ke tanganmu.</p>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="wrap">
+      <div class="tl-intro">
+        <h2>Perjalanan Panjang Sebutir Kopi</h2>
+        <p>Di balik kesederhanaan secangkir kopi, ada proses panjang yang melibatkan ratusan tangan terampil dan pengetahuan mendalam tentang alam.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <p class="tl-step-label">Tahap 01</p>
+          <h3>🌱 Penanaman</h3>
+          <p>Bibit kopi ditanam di dataran tinggi dengan iklim tropis. Pohon kopi membutuhkan 3–4 tahun untuk mulai berbuah. Tanah yang subur, curah hujan yang cukup, dan suhu yang sejuk sangat menentukan kualitas biji yang dihasilkan.</p>
+          <div class="tl-callout">Satu pohon kopi dewasa hanya menghasilkan sekitar 2 kg biji kopi per tahun — setara dengan 40 cangkir kopi.</div>
+        </div>
+
+        <div class="tl-item">
+          <p class="tl-step-label">Tahap 02</p>
+          <h3>🍒 Panen</h3>
+          <p>Buah kopi (coffee cherry) dipanen saat berwarna merah tua sempurna. Ada dua cara panen: <strong>Strip picking</strong> — semua buah dipetik sekaligus tanpa pilah, dan <strong>Selective picking</strong> — hanya buah yang benar-benar matang yang dipetik satu per satu.</p>
+          <div class="tl-callout">Selective picking menghasilkan kualitas specialty coffee terbaik, namun membutuhkan tenaga 10x lebih banyak dari strip picking.</div>
+        </div>
+
+        <div class="tl-item">
+          <p class="tl-step-label">Tahap 03</p>
+          <h3>⚙️ Pengolahan (Processing)</h3>
+          <p>Buah kopi diolah dengan salah satu dari tiga metode utama untuk memisahkan biji dari buah:</p>
+          <p><strong>Natural/Dry</strong> — buah dikeringkan utuh di bawah matahari. Menghasilkan rasa fruity dan manis yang kuat.</p>
+          <p><strong>Washed/Wet</strong> — kulit buah dikupas lalu biji difermentasi. Rasa lebih clean, cerah, dan asam.</p>
+          <p><strong>Honey Process</strong> — antara natural dan washed. Rasa manis dan balanced.</p>
+          <div class="tl-callout">Metode pengolahan mempengaruhi 30–40% profil rasa akhir kopi yang kamu minum.</div>
+        </div>
+
+        <div class="tl-item">
+          <p class="tl-step-label">Tahap 04</p>
+          <h3>☀️ Pengeringan & Hulling</h3>
+          <p>Biji kopi dikeringkan hingga kadar air turun ke 10–12%. Kemudian mesin huller mengupas kulit tanduk yang tersisa. Biji yang sudah bersih ini disebut <strong>green bean</strong> — siap untuk dipanggang.</p>
+          <div class="tl-callout">Green bean berkualitas tinggi bisa disimpan hingga dua tahun tanpa kehilangan potensi rasanya.</div>
+        </div>
+
+        <div class="tl-item">
+          <p class="tl-step-label">Tahap 05</p>
+          <h3>🔥 Roasting (Sangrai)</h3>
+          <p>Green bean dipanaskan pada suhu 180–240°C. Proses ini mengubah biji dari hijau menjadi cokelat dan mengembangkan ratusan senyawa rasa yang kompleks. Durasi dan suhu roasting menentukan tingkat kematangan.</p>
+          <div class="roast-group">
+            <div class="roast-pill" style="background:#d4a66a;color:#3d1f0e"><b>Light Roast</b><span>Fruity, asam tinggi, origin flavor terasa</span></div>
+            <div class="roast-pill" style="background:#a0673a;color:#fff"><b>Medium Roast</b><span>Balanced, karamel, sedikit asam</span></div>
+            <div class="roast-pill" style="background:#4a2c0a;color:#f5ede0"><b>Dark Roast</b><span>Pahit, smoky, body tebal</span></div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <p class="tl-step-label">Tahap 06</p>
+          <h3>📦 Packaging & Distribusi</h3>
+          <p>Biji kopi dikemas dalam kantong kedap udara dengan <strong>one-way valve</strong> — gas CO₂ sisa roasting bisa keluar, namun oksigen tidak bisa masuk. Ini menjaga kesegaran kopi selama pengiriman.</p>
+          <div class="tl-callout">Kopi paling nikmat dikonsumsi 3–14 hari setelah roasting. Setelah 4 minggu, aroma dan rasa mulai menurun signifikan.</div>
+        </div>
+
+        <div class="tl-item">
+          <p class="tl-step-label">Tahap 07</p>
+          <h3>☕ Di Tanganmu!</h3>
+          <p>Setelah perjalanan panjang dari kebun ke gudang ke toko, biji kopi akhirnya siap kamu giling dan seduh. Setiap langkah sebelumnya — cuaca saat panen, cara pengolahan, tingkat roasting — semua terekam dalam cangkir yang ada di tanganmu.</p>
+          <div class="tl-callout">Nikmati setiap tegukan dengan penuh perhatian. Di baliknya ada kerja keras ribuan tangan dari seluruh penjuru dunia.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ TIPS & FAKTA ═══ -->
+<div id="page-tips" class="page">
+  <div class="page-banner" style="background:linear-gradient(150deg,#2a1040 0%,#5a2880 60%,#2a1040 100%)">
+    <div class="wrap">
+      <p class="banner-pre">Wecol / Tips & Fakta</p>
+      <h1>Yang Perlu Kamu Tahu tentang Kopi</h1>
+      <p>Rahasia dari barista berpengalaman dan fakta-fakta menarik yang jarang diketahui.</p>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="wrap">
+
+      <div class="tf-layout">
+        <div class="tf-col">
+          <h2 class="tf-col-title"><span>💡</span> Tips dari Barista</h2>
+
+          <div class="tip-item"><div class="tip-n">01</div><div>
+            <h4>Gunakan Air yang Tepat</h4>
+            <p>Air menyumbang 98% dari secangkir kopi. Gunakan air filter atau air mineral dengan mineral seimbang. Hindari air keran dengan klorin tinggi. Suhu ideal: 90–96°C — air mendidih 100°C justru membakar kopi.</p>
+          </div></div>
+
+          <div class="tip-item"><div class="tip-n">02</div><div>
+            <h4>Giling Sesaat Sebelum Menyeduh</h4>
+            <p>Kopi yang sudah digiling kehilangan aroma dalam hitungan menit. Selalu giling biji kopi sesaat sebelum menyeduh untuk mendapatkan rasa yang optimal. Kopi bubuk yang sudah lama = rasa yang flat dan membosankan.</p>
+          </div></div>
+
+          <div class="tip-item"><div class="tip-n">03</div><div>
+            <h4>Perhatikan Ukuran Gilingan</h4>
+            <p>Gilingan kasar untuk French Press, sedang untuk drip dan pour over, halus untuk espresso. Gilingan terlalu halus membuat kopi pahit berlebihan. Terlalu kasar membuat rasa lemah dan hambar.</p>
+          </div></div>
+
+          <div class="tip-item"><div class="tip-n">04</div><div>
+            <h4>Simpan Kopi di Tempat yang Benar</h4>
+            <p>Simpan dalam wadah kedap udara, jauh dari cahaya, panas, dan kelembaban. Jangan simpan di kulkas — perubahan suhu bolak-balik merusak aroma. Suhu ruang yang stabil adalah penyimpanan terbaik.</p>
+          </div></div>
+
+          <div class="tip-item"><div class="tip-n">05</div><div>
+            <h4>Lakukan Blooming Sebelum Menuang</h4>
+            <p>Untuk pour over, tuangkan sedikit air (sekitar 2x berat kopi) dan tunggu 30 detik. Proses ini membuang CO₂ dari biji yang baru digiling sehingga ekstraksi berikutnya lebih merata dan menghasilkan rasa yang lebih penuh.</p>
+          </div></div>
+
+          <div class="tip-item"><div class="tip-n">06</div><div>
+            <h4>Bersihkan Alat Seduh Secara Rutin</h4>
+            <p>Residu minyak kopi yang menempel di alat seduh akan membuat kopi terasa pahit dan tengik. Cuci alat dengan air hangat setelah setiap penggunaan. Seminggu sekali bersihkan lebih mendalam.</p>
+          </div></div>
+        </div>
+
+        <div class="tf-col">
+          <h2 class="tf-col-title"><span>✦</span> Fakta Menarik</h2>
+
+          <div class="fact-item"><div class="fact-ico">🌍</div><div>
+            <h4>Minuman Terpopuler Kedua di Dunia</h4>
+            <p>Kopi adalah minuman paling populer kedua setelah air putih. Lebih dari <strong>2 miliar cangkir</strong> dikonsumsi setiap harinya di seluruh penjuru dunia.</p>
+          </div></div>
+
+          <div class="fact-item"><div class="fact-ico">🐐</div><div>
+            <h4>Pertama Kali Ditemukan karena Kambing</h4>
+            <p>Legenda menyebut kopi ditemukan sekitar 850 M di Ethiopia, ketika penggembala bernama Kaldi melihat kambingnya sangat aktif dan tidak mau tidur setelah memakan buah dari pohon tertentu.</p>
+          </div></div>
+
+          <div class="fact-item"><div class="fact-ico">☕</div><div>
+            <h4>Espresso Bukan Jenis Biji Kopi</h4>
+            <p>Banyak yang tidak tahu: espresso adalah <strong>metode menyeduh</strong>, bukan jenis biji kopi. Hampir semua jenis biji kopi bisa dibuat espresso tergantung cara menyeduhnya.</p>
+          </div></div>
+
+          <div class="fact-item"><div class="fact-ico">🧠</div><div>
+            <h4>Kafein Bekerja Dalam 45 Menit</h4>
+            <p>Setelah diminum, kafein mulai terasa efeknya dalam 15–45 menit dan mencapai puncak setelah 1 jam. Kafein bertahan di dalam tubuh selama 5–6 jam sebelum efeknya mereda.</p>
+          </div></div>
+
+          <div class="fact-item"><div class="fact-ico">🇮🇩</div><div>
+            <h4>Indonesia Produsen Kopi Terbesar Ke-4</h4>
+            <p>Indonesia menghasilkan lebih dari 700.000 ton kopi per tahun. Kopi Gayo dari Aceh, Toraja dari Sulawesi, dan Flores sudah dikenal dan diminati oleh pencinta specialty coffee di seluruh dunia.</p>
+          </div></div>
+
+          <div class="fact-item"><div class="fact-ico">🔬</div><div>
+            <h4>Lebih dari 1.000 Senyawa Kimia</h4>
+            <p>Secangkir kopi mengandung lebih dari 1.000 senyawa kimia yang kompleks. Rasa, aroma, dan warna terbentuk dari interaksi ratusan senyawa ini selama proses roasting — yang berlangsung hanya 10–15 menit.</p>
+          </div></div>
+
+          <div class="fact-item"><div class="fact-ico">🌡️</div><div>
+            <h4>Cold Brew 67% Lebih Rendah Asam</h4>
+            <p>Proses seduh dingin menghasilkan kopi dengan kadar asam 67% lebih rendah dibandingkan kopi panas. Lebih ramah untuk lambung, namun kafeinnya bisa dua kali lebih tinggi dari drip coffee biasa.</p>
+          </div></div>
+        </div>
+      </div>
+
+      <!-- Flavor wheel -->
+      <div class="flavor-section">
+        <h2>Roda Rasa Kopi</h2>
+        <p>Kopi memiliki ratusan profil rasa — berikut delapan kategori utamanya</p>
+        <div class="flavor-grid">
+          <div class="fwheel" style="--c:#e8d5a3">🌸 Floral<span>Melati, mawar, lavender</span></div>
+          <div class="fwheel" style="--c:#f4c090">🍊 Fruity<span>Citrus, berry, tropis</span></div>
+          <div class="fwheel" style="--c:#b8d4a0">🌿 Green<span>Herbal, segar, sayuran</span></div>
+          <div class="fwheel" style="--c:#d4b890">🫘 Nutty<span>Almond, hazelnut, kacang</span></div>
+          <div class="fwheel" style="--c:#c4a882">🍫 Cocoa<span>Dark chocolate, kakao</span></div>
+          <div class="fwheel" style="--c:#f0d8a0">🍯 Sweet<span>Karamel, madu, vanilla</span></div>
+          <div class="fwheel" style="--c:#b0b0b0">🌑 Roasty<span>Smoky, earthy, pahit</span></div>
+          <div class="fwheel" style="--c:#c4a060">🍷 Winey<span>Fermented, tart, wine</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:8px">
+          <span class="logo-txt">Wecol</span>
+          <span class="logo-dot"></span>
+        </div>
+        <p>Platform edukasi kopi untuk semua orang — dari yang baru pertama mencoba hingga yang sudah bertahun-tahun menyeduh.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Topik</h4>
+        <a onclick="showPage('jenis')">Jenis Kopi</a>
+        <a onclick="showPage('seduh')">Cara Seduh</a>
+        <a onclick="showPage('biji')">Perjalanan Biji</a>
+        <a onclick="showPage('tips')">Tips & Fakta</a>
+      </div>
+    </div>
+    <div class="footer-line">
+      <p>© 2026 Wecol — Dibuat dengan ☕ dan semangat belajar</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

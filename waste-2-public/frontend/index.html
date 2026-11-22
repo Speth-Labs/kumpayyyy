@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SmartWaste — Portal Warga</title>
+  <meta name="description" content="Portal warga SmartWaste untuk melaporkan kondisi sampah, memantau penanganan, dan mengunduh riwayat laporan.">
+  <meta name="theme-color" content="#f5f6f5">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css?v=1.6.8">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%234d8534'/%3E%3Cpath d='M20 42c0-12 9-22 24-24 2 15-7 26-19 26' fill='none' stroke='%23f2f8ea' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M22 46c4-10 10-16 19-20' fill='none' stroke='%23f2f8ea' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+</head>
+<body>
+  <div class="page-glow" aria-hidden="true"><span></span><span></span></div>
+
+  <!-- ============ AUTHENTICATION ============ -->
+  <section id="authView" class="auth hidden" aria-label="Masuk atau buat akun">
+    <div class="auth-shell">
+      <aside class="auth-brand" aria-hidden="true">
+        <img src="assets/img/smartphone-recycling.jpg?v=1" alt="" class="auth-photo" loading="eager">
+      </aside>
+
+      <div class="auth-panel" role="main">
+        <a class="link-inline auth-back-link" href="landing.html"><span class="icon-only" data-icon="arrow-left"></span> Kembali ke halaman utama</a>
+        <div class="auth-panel-head">
+          <a class="brand brand--mobile" href="landing.html" aria-label="Kembali ke halaman utama">
+            <span class="brand-mark" data-art="mark"></span>
+            <span class="brand-name">SmartWaste</span>
+          </a>
+          <h2 id="authTitle">Selamat datang kembali</h2>
+          <p id="authSubtitle">Masuk untuk melanjutkan pemantauan laporanmu.</p>
+        </div>
+
+        <div class="auth-tabs" role="tablist" aria-label="Pilihan autentikasi">
+          <button type="button" class="auth-tab is-active" id="loginTab" role="tab" aria-selected="true" data-auth-tab="login">Masuk</button>
+          <button type="button" class="auth-tab" id="registerTab" role="tab" aria-selected="false" data-auth-tab="register">Buat akun</button>
+        </div>
+
+        <form id="loginForm" class="auth-form" novalidate>
+          <div class="field">
+            <label for="loginUsername">Username</label>
+            <div class="input-wrap">
+              <span class="input-icon" data-icon="user"></span>
+              <input id="loginUsername" name="username" type="text" autocomplete="username" placeholder="Masukkan username kamu" required>
+            </div>
+          </div>
+          <div class="field">
+            <div class="label-row">
+              <label for="loginPassword">Password</label>
+            </div>
+            <div class="input-wrap">
+              <span class="input-icon" data-icon="lock"></span>
+              <input id="loginPassword" name="password" type="password" autocomplete="current-password" placeholder="Masukkan password" required>
+              <button type="button" class="input-action" data-action="toggle-password" data-target="loginPassword" aria-label="Tampilkan password">
+                <span class="icon-only" data-icon="eye"></span>
+              </button>
+            </div>
+          </div>
+          <p class="form-error" id="loginError" role="alert" hidden></p>
+          <button type="submit" class="btn btn--primary btn--block btn--lg" id="loginSubmit">
+            Masuk ke portal <span class="icon-only" data-icon="arrow-right"></span>
+          </button>
+
+        </form>
+
+        <form id="registerForm" class="auth-form hidden" novalidate>
+          <div class="field">
+            <label for="registerName">Nama lengkap</label>
+            <div class="input-wrap">
+              <span class="input-icon" data-icon="user"></span>
+              <input id="registerName" name="name" type="text" autocomplete="name" placeholder="Contoh: Fadhlan Rizky" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="registerUsername">Username</label>
+            <div class="input-wrap">
+              <span class="input-icon" data-icon="at"></span>
+              <input id="registerUsername" name="username" type="text" autocomplete="username" placeholder="Minimal 3 karakter" minlength="3" required>
+            </div>
+            <p class="field-hint">Tanpa email. Username dipakai untuk masuk kembali.</p>
+          </div>
+          <div class="field">
+            <label for="registerPassword">Password</label>
+            <div class="input-wrap">
+              <span class="input-icon" data-icon="lock"></span>
+              <input id="registerPassword" name="password" type="password" autocomplete="new-password" placeholder="Minimal 8 karakter" minlength="8" required>
+              <button type="button" class="input-action" data-action="toggle-password" data-target="registerPassword" aria-label="Tampilkan password">
+                <span class="icon-only" data-icon="eye"></span>
+              </button>
+            </div>
+            <p class="field-hint">Gunakan minimal 8 karakter agar akun lebih aman.</p>
+          </div>
+          <p class="form-error" id="registerError" role="alert" hidden></p>
+          <button type="submit" class="btn btn--primary btn--block btn--lg" id="registerSubmit">
+            Buat akun warga <span class="icon-only" data-icon="arrow-right"></span>
+          </button>
+          <p class="auth-note">Portal ini hanya untuk akun warga. Akun Admin dan Petugas masuk melalui aplikasi operasional.</p>
+        </form>
+
+        <p class="auth-terms">Dengan melanjutkan, kamu menyetujui pemrosesan data laporan untuk keperluan penanganan sampah.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ APP SHELL ============ -->
+  <div id="shell" class="shell hidden">
+    <div id="scrim" class="scrim" hidden></div>
+
+    <aside id="sidebar" class="sidebar" aria-label="Navigasi utama">
+      <div class="sidebar-top">
+        <a class="brand" href="#/ringkasan" aria-label="SmartWaste, ke ringkasan">
+          <span class="brand-mark" data-art="mark"></span>
+          <span class="brand-name">SmartWaste</span>
+        </a>
+
+        <form class="side-search" id="sideSearchForm" role="search">
+          <span class="side-search-ic" data-icon="search"></span>
+          <input id="sideSearch" type="search" placeholder="Cari laporan..." aria-label="Cari laporan" autocomplete="off">
+          <kbd>Ctrl K</kbd>
+        </form>
+
+        <nav class="nav">
+          <p class="nav-label">Menu utama</p>
+          <a class="nav-item" href="#/ringkasan" data-nav="dashboard">
+            <span class="nav-icon" data-icon="grid"></span>
+            <span>Ringkasan</span>
+          </a>
+          <a class="nav-item" href="#/buat" data-nav="new">
+            <span class="nav-icon" data-icon="plus-circle"></span>
+            <span>Buat laporan</span>
+          </a>
+          <a class="nav-item" href="#/riwayat" data-nav="reports">
+            <span class="nav-icon" data-icon="clock"></span>
+            <span>Riwayat laporan</span>
+            <span class="nav-badge" id="navPendingBadge" hidden>0</span>
+          </a>
+
+          <p class="nav-label">Akun &amp; bantuan</p>
+          <a class="nav-item" href="#/profil" data-nav="profile">
+            <span class="nav-icon" data-icon="user"></span>
+            <span>Profil</span>
+          </a>
+          <button type="button" class="nav-item nav-item--button" data-action="open-help">
+            <span class="nav-icon" data-icon="help"></span>
+            <span>Bantuan cepat</span>
+          </button>
+          <a class="nav-item" href="landing.html">
+            <span class="nav-icon" data-icon="arrow-up-right"></span>
+            <span>Halaman utama</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-promo">
+          <span class="promo-art" data-art="promo" aria-hidden="true"></span>
+          <p class="promo-title">Jaga lingkunganmu</p>
+          <p class="promo-copy">Setiap laporan membantu petugas bergerak lebih cepat.</p>
+          <a href="#/buat" class="btn btn--dark btn--sm btn--block">
+            Buat laporan <span class="icon-only" data-icon="arrow-right"></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="sidebar-bottom">
+        <div class="sidebar-user">
+          <button type="button" class="sidebar-user-main" data-action="go-profile">
+            <span class="avatar avatar--sm" id="sidebarAvatar">FR</span>
+            <span class="sidebar-user-text">
+              <strong id="sidebarName">Warga</strong>
+              <small>Akun warga</small>
+            </span>
+          </button>
+          <button type="button" class="icon-btn icon-btn--quiet" data-action="logout" aria-label="Keluar dari akun">
+            <span class="icon-only" data-icon="logout"></span>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button type="button" class="icon-btn menu-btn" id="menuBtn" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="sidebar">
+            <span class="icon-only" data-icon="menu"></span>
+          </button>
+        </div>
+        <div class="top-actions">
+          <button type="button" class="icon-btn" id="bellBtn" aria-label="Notifikasi" aria-expanded="false">
+            <span class="icon-only" data-icon="bell"></span>
+            <span class="notif-dot" id="notifDot" hidden></span>
+          </button>
+          <button type="button" class="profile-chip" data-action="go-profile">
+            <span class="avatar avatar--sm" id="topAvatar">FR</span>
+            <span class="profile-chip-text">
+              <strong id="topChipName">Warga</strong>
+              <small>Akun warga</small>
+            </span>
+            <span class="icon-only muted" data-icon="chevron-down"></span>
+          </button>
+        </div>
+      </header>
+
+      <div class="conn-banner" id="connBanner" role="status" hidden>
+        <span class="icon-only" data-icon="wifi-off"></span>
+        <span id="connBannerText">Koneksi ke server terputus. Data yang tampil mungkin belum terbaru.</span>
+        <button type="button" class="btn btn--ghost btn--xs" data-action="retry-connection">Coba lagi</button>
+      </div>
+
+      <main id="view" class="view" tabindex="-1"></main>
+    </div>
+  </div>
+
+  <div id="notifPop" class="popover" hidden>
+    <div class="popover-head">
+      <strong>Notifikasi</strong>
+      <span class="popover-sub" id="notifSub">Aktivitas laporan terbaru</span>
+    </div>
+    <div class="popover-body" id="notifList"></div>
+    <div class="popover-foot">
+      <a href="#/riwayat" class="link-inline" data-action="close-notif">Lihat semua riwayat <span class="icon-only" data-icon="arrow-right"></span></a>
+    </div>
+  </div>
+
+  <div id="modalRoot"></div>
+  <div id="toastRoot" class="toast-root" aria-live="polite" aria-atomic="false"></div>
+
+  <noscript>
+    <div class="noscript">Portal SmartWaste memerlukan JavaScript untuk berjalan. Aktifkan JavaScript pada browser kamu.</div>
+  </noscript>
+
+  <script src="assets/js/icons.js?v=1.5.0"></script>
+  <script src="assets/js/data.js?v=2.0.2"></script>
+  <script src="assets/js/app.js?v=1.6.5"></script>
+</body>
+</html>
